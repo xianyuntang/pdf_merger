@@ -48,11 +48,10 @@ ipcMain.on('start-merge', (event, args) => {
 
         ]
     }).then(async (result) => {
-        console.log(result)
-        const fileList = args.split(',')
+
 
         const merger = new PDFMerger();
-        fileList.forEach(item => {
+        args.forEach(item => {
             merger.add(item)
 
         })
