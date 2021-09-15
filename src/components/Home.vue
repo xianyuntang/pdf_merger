@@ -8,6 +8,7 @@
           :auto-upload="false"
           :show-file-list="false"
           :on-change="fileOnChange"
+          accept=".pdf,.PDF"
       >
         <i class="el-icon-upload"></i>
         <div class="el-upload__text">將PDF拖到這邊</div>
@@ -23,7 +24,8 @@
                   <div class="list-item">{{ file.name }}</div>
                 </el-col>
                 <el-col class="delete-btn" :span="4">
-                  <el-button icon="el-icon-delete" size="mini" type="danger" round @click="removeFile(file.uid)"></el-button>
+                  <el-button icon="el-icon-delete" size="mini" type="danger" round
+                             @click="removeFile(file.uid)"></el-button>
                 </el-col>
               </el-row>
             </div>
@@ -55,7 +57,14 @@ export default {
   },
   methods: {
     fileOnChange(file, fileList) {
-      this.fileList = fileList
+      if (file.name.endsWith('.pdf') || file.name.endsWith('.PDF')) {
+
+        this.fileList = fileList
+      } else {
+        this.$message.error('只接受pdf格式!!')
+        this.fileList.splice(this.fileList.findIndex(item => item.file), 1)
+      }
+
     },
     removeFile(uid) {
       this.fileList.splice(this.fileList.findIndex(item => item.uid === uid), 1)
@@ -74,11 +83,6 @@ export default {
       })
     }
   },
-  watch: {
-    fileList: function (value) {
-      console.log(value)
-    }
-  }
 }
 </script>
 
