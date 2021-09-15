@@ -12,15 +12,15 @@ export function registerListener() {
 
             ]
         }).then(async (result) => {
-
-            const params = [`${path.join(process.cwd(), 'extraFiles', 'pdf_merger.exe')}`]
+            let command = `${path.join(process.cwd(), 'extraFiles', 'pdf_merger.exe')}`
             args.forEach(item => {
-                params.push('-i')
-                params.push(item)
+                command += ' -i'
+                command += ` "${item}"`
             })
-            params.push('-o')
-            params.push(result.filePath)
-            const command = params.join(' ')
+            command += ' -o'
+            command += ` "${result.filePath}"`
+
+            console.log(command)
             exec(command, function (err, stdout, stderr) {
                 if (err === null) {
                     event.reply('stop-merge', {'message': '成功'})

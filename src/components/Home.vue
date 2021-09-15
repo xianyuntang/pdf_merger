@@ -93,6 +93,7 @@ export default {
 
 .item:hover {
   background: #dcdfe6;
+  cursor: grab;
 }
 
 .list-item {
