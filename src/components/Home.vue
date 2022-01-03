@@ -14,8 +14,8 @@
         <div class="el-upload__text">將PDF拖到這邊</div>
       </el-upload>
     </el-row>
-    <el-row v-if="fileList.length">
-      <el-col>
+    <el-row v-if="fileList.length" justify="center">
+      <el-col :span="12" :offset="6">
         <el-card class="box-card">
           <draggable v-model="fileList">
             <div v-for="(file,index) in fileList" :key="index" class="item">
