@@ -11,7 +11,7 @@ module.exports = {
                 win: {
                 },
                 extraFiles:[
-                    "extraFiles/pdf_merger.exe"
+                    "extraFiles/pdftk.exe"
                 ]
 
             }
