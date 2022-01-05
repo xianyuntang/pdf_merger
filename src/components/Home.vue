@@ -35,7 +35,7 @@
     </el-row>
     <el-row v-if="fileList.length">
       <el-divider/>
-      <el-button round @click="startMerge" type="primary" :disabled="merging">開始合併</el-button>
+      <el-button round @click="startMerge" type="primary" :disabled="merging" :loading="merging">開始合併</el-button>
     </el-row>
 
 

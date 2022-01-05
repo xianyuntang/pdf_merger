@@ -19,7 +19,6 @@ export function registerListener() {
             command += ' cat'
             command += ` output "${result.filePath}"`
 
-            console.log(command)
             exec(command, function (err, stdout, stderr) {
                 if (err === null) {
                     event.reply('stop-merge', {'message': '成功'})
