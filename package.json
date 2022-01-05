@@ -14,11 +14,10 @@
   "main": "background.js",
   "dependencies": {
     "core-js": "^3.6.5",
-    "easy-pdf-merge": "^0.2.6",
     "element-ui": "^2.15.6",
-    "pdf-merger-js": "^3.2.1",
     "vue": "^2.6.11",
-    "vuedraggable": "^2.24.3"
+    "vuedraggable": "^2.24.3",
+    "yarn": "^1.22.17"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",
